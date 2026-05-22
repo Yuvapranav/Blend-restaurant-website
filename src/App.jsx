@@ -32,61 +32,26 @@ function App() {
       {/* TopNavBar Shell */}
       <header className={`fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-margin-desktop py-4 max-w-container-max mx-auto transition-all ${isScrolled ? 'bg-background/95 shadow-lg' : 'bg-background/80 backdrop-blur-md border-b border-outline-variant/30'}`}>
         <div className="font-headline-md text-headline-md font-bold tracking-widest text-accent-gold">BLEND</div>
-        <nav className="hidden md:flex gap-8 items-center">
-          <a className="font-label-caps text-label-caps text-accent-gold border-b-2 border-accent-gold pb-1" href="#menu">Menu</a>
-          <a className="font-label-caps text-label-caps text-on-surface-variant hover:text-typography-high transition-colors" href="#">Gallery</a>
-          <a className="font-label-caps text-label-caps text-on-surface-variant hover:text-typography-high transition-colors" href="#footer">Location</a>
-          <a className="font-label-caps text-label-caps text-on-surface-variant hover:text-typography-high transition-colors" href="#footer">Contact</a>
+        <nav className="hidden lg:flex gap-6 items-center">
+          <a className={`font-label-caps text-label-caps transition-colors ${activeSection === 'breads' ? 'text-accent-gold' : 'text-on-surface-variant hover:text-typography-high'}`} href="#breads">Breads</a>
+          <a className={`font-label-caps text-label-caps transition-colors ${activeSection === 'biriyani' ? 'text-accent-gold' : 'text-on-surface-variant hover:text-typography-high'}`} href="#biriyani">Biriyani</a>
+          <a className={`font-label-caps text-label-caps transition-colors ${activeSection === 'chicken' ? 'text-accent-gold' : 'text-on-surface-variant hover:text-typography-high'}`} href="#chicken">Chicken</a>
+          <a className={`font-label-caps text-label-caps transition-colors ${activeSection === 'beef' ? 'text-accent-gold' : 'text-on-surface-variant hover:text-typography-high'}`} href="#beef">Beef</a>
+          <a className={`font-label-caps text-label-caps transition-colors ${activeSection === 'seafood' ? 'text-accent-gold' : 'text-on-surface-variant hover:text-typography-high'}`} href="#seafood">Seafood</a>
+          <a className={`font-label-caps text-label-caps transition-colors ${activeSection === 'beverages' ? 'text-accent-gold' : 'text-on-surface-variant hover:text-typography-high'}`} href="#beverages">Beverages</a>
         </nav>
         <button className="bg-primary-container text-on-primary-container font-button-text text-button-text px-6 py-2 rounded transition-all active:scale-95 duration-200">
             Order Now
         </button>
       </header>
 
-      {/* SideNavBar (Desktop Only) */}
-      <aside className="fixed left-0 top-20 h-[calc(100vh-80px)] z-40 p-4 hidden lg:flex flex-col bg-surface-charcoal border-r border-outline-variant w-64 shadow-xl">
-        <div className="mb-8 px-2">
-          <h2 className="font-headline-md text-headline-md text-accent-gold mb-1">Menu Categories</h2>
-          <p className="text-on-surface-variant text-sm">Authentic Kerala Cuisine</p>
-        </div>
-        <nav className="space-y-2 flex-grow overflow-y-auto">
-          <a className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all active:translate-x-1 duration-150 ${activeSection === 'breads' ? 'text-accent-gold font-bold bg-surface-container-highest' : 'text-on-surface-variant hover:bg-surface-container-low'}`} href="#breads">
-            <span className="material-symbols-outlined">restaurant</span>
-            <span>Breads &amp; Mains</span>
-          </a>
-          <a className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all active:translate-x-1 duration-150 ${activeSection === 'biriyani' ? 'text-accent-gold font-bold bg-surface-container-highest' : 'text-on-surface-variant hover:bg-surface-container-low'}`} href="#biriyani">
-            <span className="material-symbols-outlined">set_meal</span>
-            <span>Biriyani</span>
-          </a>
-          <a className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all active:translate-x-1 duration-150 ${activeSection === 'chicken' ? 'text-accent-gold font-bold bg-surface-container-highest' : 'text-on-surface-variant hover:bg-surface-container-low'}`} href="#chicken">
-            <span className="material-symbols-outlined">kebab_dining</span>
-            <span>Chicken</span>
-          </a>
-          <a className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all active:translate-x-1 duration-150 ${activeSection === 'beef' ? 'text-accent-gold font-bold bg-surface-container-highest' : 'text-on-surface-variant hover:bg-surface-container-low'}`} href="#beef">
-            <span className="material-symbols-outlined">lunch_dining</span>
-            <span>Beef</span>
-          </a>
-          <a className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all active:translate-x-1 duration-150 ${activeSection === 'seafood' ? 'text-accent-gold font-bold bg-surface-container-highest' : 'text-on-surface-variant hover:bg-surface-container-low'}`} href="#seafood">
-            <span className="material-symbols-outlined">phishing</span>
-            <span>Seafood</span>
-          </a>
-          <a className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all active:translate-x-1 duration-150 ${activeSection === 'beverages' ? 'text-accent-gold font-bold bg-surface-container-highest' : 'text-on-surface-variant hover:bg-surface-container-low'}`} href="#beverages">
-            <span className="material-symbols-outlined">local_bar</span>
-            <span>Beverages</span>
-          </a>
-        </nav>
-        <div className="mt-auto pt-4 border-t border-outline-variant/30">
-          <button className="w-full py-3 text-accent-copper border border-accent-copper font-button-text text-button-text rounded hover:bg-accent-copper/10 transition-colors">
-            View Specials
-          </button>
-        </div>
-      </aside>
 
-      <main className="lg:ml-64 pt-20">
+
+      <main className="pt-20">
         {/* Hero Section */}
         <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img alt="Blend Kerala Sadhya" className="w-full h-full object-cover opacity-60 scale-105 transition-transform duration-1000 hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-GPgYIAVOYaZ9NiI3g6oGAHJg8wsD7_uQGiVnPY0fqMqU2vKCO2ZYh9clzmtGksEFmYI21dc0YwnMoMYeCUM6HdkEzkCrKfJKEb2x3uwvc179gn-cpMN6wkC5clcJWSndjuxs_Ld6AhLWXLU-xeCsMw1KjDx7Q6j2THREU4TW_GWOnfxKqyE5ul8FN-OL49EFhisPEldruTr6erXfujYD1CTzt-TTowViUlQWVp_KdoHZ_4APnmN68ab2yChSxtZx2O6h9Z0C"/>
+            <img alt="Blend Kerala Sadhya" className="w-full h-full object-cover opacity-70 scale-105 transition-transform duration-1000 hover:scale-100" src="/hero-hd.png"/>
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
           </div>
           <div className="relative z-10 text-center space-y-4 px-4">
